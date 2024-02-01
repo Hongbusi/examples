@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common'
+import * as Joi from 'joi'
+import { ConfigModule } from '@nestjs/config'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { OssModule } from './oss/oss.module'
-import * as Joi from 'joi'
-import { ConfigModule } from '@nestjs/config'
 
 @Module({
   imports: [

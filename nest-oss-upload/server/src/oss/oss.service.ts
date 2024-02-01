@@ -20,7 +20,7 @@ export class OssService {
       accessKeySecret,
     })
 
-    // 生成签名有效期为 6 小时
+    // 有效期为 6 小时
     const expireTime = new Date()
     expireTime.setSeconds(expireTime.getSeconds() + 3600 * 6)
 

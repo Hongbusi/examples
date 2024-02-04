@@ -35,8 +35,15 @@ export default function App() {
       formData.append('success_action_status', '200')
 
       const res = await axios.post(host, formData)
-      if (res.status === 200)
-        setImageUrl(`${host}/${fileName}`)
+
+      if (res.status === 200) {
+        // 公共读取
+        // setImageUrl(`${host}/${fileName}`)
+
+        // 私有读取
+        const response = await axios.get(`/api/oss/file/${fileName}`)
+        setImageUrl(response.data)
+      }
     }
   }
 

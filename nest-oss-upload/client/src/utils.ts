@@ -7,7 +7,7 @@ export function ext(filename: string) {
 /**
  * 计算文件的哈希值（通过抽样方式）
  * @param {File} file - 要计算哈希值的文件
- * @returns {Promise<string>}
+ * @returns {Promise<string>} hash 值
  */
 export async function calculateFileSamplingHash(file: File): Promise<string> {
   return new Promise<string>((resolve) => {

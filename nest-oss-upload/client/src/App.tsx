@@ -1,7 +1,7 @@
-import { Input } from '@/components/ui/input'
 import { ChangeEvent, useEffect, useState } from 'react'
-import { calculateFileSamplingHash, ext } from './utils'
 import axios from 'axios'
+import { calculateFileSamplingHash, ext } from './utils'
+import { Input } from '@/components/ui/input'
 
 export default function App() {
   const [imageUrl, setImageUrl] = useState('')
@@ -21,7 +21,7 @@ export default function App() {
 
     if (file) {
       const hash = await calculateFileSamplingHash(file)
-  
+
       const fileName = `${hash}.${ext(file.name)}`
 
       const formData = new FormData()
@@ -35,9 +35,8 @@ export default function App() {
       formData.append('success_action_status', '200')
 
       const res = await axios.post(host, formData)
-      if (res.status === 200) {
+      if (res.status === 200)
         setImageUrl(`${host}/${fileName}`)
-      }
     }
   }
 
